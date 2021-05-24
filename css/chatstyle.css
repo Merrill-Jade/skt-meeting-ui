@@ -1,0 +1,208 @@
+body {
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-stretch: condensed;
+}
+.row{
+    padding: 0;
+    margin: 0;
+}
+.chatroom-wrapper {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+.attendance-wrapper {
+    padding: 1rem;
+    border-right: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    height: calc(100vh - 102px);
+    width: 168px;
+    overflow: hidden;
+}
+.attendance-container {
+    position: absolute;
+    width: inherit;
+    bottom: 0;
+    margin-bottom: 1rem;
+}
+.attendance-container h5 {
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: relative;
+    width: inherit;
+    font-weight: 700;
+}
+#modifySeat {
+    padding: 3px 5px 3px 5px;
+    color: white;
+    width: 120px;
+    background-color: #494949;
+    font-size: 14px;
+}
+.participants {
+    list-style: none;
+    padding: 0;
+    padding-left: 10px;
+    margin: 0 auto;
+    width: inherit;
+    margin-bottom: 30px;
+    position: relative;
+}
+.participants li {
+    margin: 10px;
+    padding: 0;
+}
+.p-color-circle{
+    content: " ";
+    margin: 0;
+    padding: 0;
+    top: 0px;
+    left: -5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+.participants li span {
+    margin: 0;
+    padding: 0;
+    margin-left: 3px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.chat-contents-wrapper {
+    position: absolute;
+    border-top: 1px solid #cccccc;
+    height: calc(100vh - 102px);
+    width: calc(100vw - 168px);
+    overflow: hidden;
+    right: 0;
+    padding: 0;
+    margin: 0;
+}
+.chatroom-title-img img{
+    width: 82px;
+    padding: 0;
+    margin: 0;
+}
+.chatroom-title-wrapper {
+    margin: 1rem 2rem 1rem 0;
+}
+.chatroom-title-wrapper h5 {
+    margin: 0;
+}
+.chatroom-title-wrapper span {
+    color: gray;
+    font-size: small;
+}
+.chatroom-btnmenu-wrapper {
+    display: flexbox;
+    align-items: center;
+    margin: auto;
+    margin-right: 2rem;
+}
+.chatroom-btnmenu-wrapper a,
+.chatroom-btnmenu-wrapper button {
+    display: inline-block;
+    margin-right: 0.5rem;
+    position: relative;
+    float: right;
+    background-color: #494949;
+    color: white;
+    font-size: 14px;
+}
+.msg-wrapper {
+    display: inline-flex;
+    margin: 0;
+
+}
+.msg-wrapper a{
+    background: transparent;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+}
+.msg-playicon{
+    color: #9e9e9e;
+    position: relative;
+    align-self: flex-start;
+    top: 6px;
+    margin-right: 5px;
+}
+.msg-text-wrapper {
+    background: #efefef;
+    border: 1px solid white;
+    border-radius: 7px;
+    padding: 6px;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    max-width: calc(100% - 70px);
+}
+.msg-time {
+    margin: 0;
+    margin-left: 5px;
+    padding: 0;
+    display: inline-block;
+    position: relative;
+    align-self: flex-end;
+    bottom: 3px;
+    font-size: 10px;
+}
+.chat-msg-wrapper {
+    margin: 0.5rem;
+    margin-top: 20px;
+    padding: 0;
+}
+.name-wrapper {
+    margin: 0;
+    display: inline-flex;
+}
+.name-wrapper small {
+    font-size: 10px;
+    color: #929292;
+    margin-left: 10px;
+    align-self: flex-end;
+    margin-bottom: 3px;
+}
+.chatmsglist-wrapper {
+    overflow-y: scroll; 
+    height: calc(100vh - 272px); 
+    overflow-x: hidden;
+    border-left: 1px solid #cccccc; 
+    width: 100%;
+    position: relative;
+    bottom: calc(0 - 62px);
+}
+.chatmsglist-wrapper::-webkit-scrollbar {
+    width: 12px;
+}
+.chatmsglist-wrapper::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border-radius: 12px;
+    box-shadow: inset 0 0 1px 1px #f6f6f6;
+}
+.chatmsglist-wrapper::-webkit-scrollbar-track {
+    background-color: inherit;
+    border: 3px solid #f6f6f6;
+    border-radius: 12px;
+}
+.chat-msg-input {
+    height: 62px;
+    bottom: 0;
+    width: 100%;
+    position: relative;
+    display: flex;
+    background-color: white;
+    border-left: 1px solid #cccccc;
+}
+.chat-msg-input label {
+    overflow-x: auto;
+    background-color: white;
+}

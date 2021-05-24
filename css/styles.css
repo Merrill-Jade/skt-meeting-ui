@@ -1,0 +1,138 @@
+body {
+              position: relative;
+          }
+
+          .config{
+            flex:1;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            margin-right: 50px;
+            box-shadow: 0px 0px 5px 0px #19181854
+          }
+          form{
+            flex: 1;
+            margin: auto;
+          }
+          .svg-wrapper, .svg-wrapper-chatview{
+            position: relative;
+            flex:10;
+            display: flex;
+          }
+
+          svg{
+            margin: auto;
+          }
+
+      
+
+          .pop-over {
+              position: absolute;
+              transform: translate(-50%, -50%);
+              opacity: 1;
+              min-width: 150px;
+              max-width: 500px;
+              max-height: 200px;
+              margin: auto;
+              padding: 15px;
+              border-radius: 5px;
+              box-shadow: 1px 1px 7px 2px #19181854;
+              background: white;
+          }
+          .pop-over.second::before{
+            content: "";
+            border-style: solid;
+            /* border-width: 60px 0px 28px 125px; */
+            border-width: 38px 0px 0px 22px;
+            /* box-shadow: 23px 1px 7px 2px #19181854; */
+            border-color: rgb(223, 226, 223) transparent rgb(239 202 202 / 40%) transparent;
+            position: absolute;
+            top: 3px;
+            right: calc(100%);
+          }
+          .pop-over.third::before{
+            content: "";
+            border-style: solid;
+            /* border-width: 60px 0px 28px 125px; */
+            border-width: 45px 24px 0px 0px;
+            /* box-shadow: 46px 1px 7px 2px #19181854; */
+            border-color: rgb(223, 226, 223) transparent transparent transparent;
+            position: absolute;
+            top: 3px;
+            left: calc(100%);
+          }
+          .pop-over.fourth::before{
+            content: "";
+            border-style: solid;
+            /* border-width: 60px 0px 28px 125px; */
+            border-width: 0px 24px 44px 0px;
+            /* box-shadow: 23px 1px 7px 2px #19181854; */
+            border-color: transparent transparent rgb(223, 226, 223) transparent;
+            position: absolute;
+            top: 34px;
+            left: calc(100%);
+          }
+          .pop-over.first::before{
+                 content: "";
+                border-style: solid;
+                /* border-width: 60px 0px 28px 125px; */
+                border-width: 50px 0px 40px 20px;
+                /* box-shadow: 1px 1px 7px 2px #19181854; */
+                border-color: transparent transparent rgb(239 202 202 / 40%) transparent;
+                position: absolute;
+                top: -10px;
+                right: calc(100%); 
+          }
+          .pop-over.fade-out {
+              opacity: 0;
+              transition: opacity 1s ease-in-out;
+          }
+          path.general{
+            /*stroke: #a3a2a2 !important;*/
+          }
+          #tableImage{
+           
+          }
+          img{
+            /*transition: all 2s;*/
+          }
+          
+          @-webkit-keyframes blinker {
+            from {opacity: 1.0;}
+            to {opacity: 0.0;}
+          }
+          .blink{
+             text-decoration: blink;
+            -webkit-animation-name: blinker;
+            -webkit-animation-duration: 0.6s;
+            -webkit-animation-iteration-count:infinite;
+            -webkit-animation-timing-function:ease-in-out;
+            -webkit-animation-direction: alternate;
+          }
+         #circleParent{
+          position: relative;
+         }
+         #ref_head{
+          display: none;
+         }
+
+         .people, .bubble{
+          display: none;
+            transform: rotate(0deg);
+         }
+         #tableImage, .people, .bubble{
+            position: absolute;
+            height: 400px;
+            width: 400px;
+            top: 50%;
+            left: 50%;
+            margin-left: -200px;
+            margin-top: -200px;
+
+         }
+          .bubble{
+            width: 500px;
+            margin-left: -255px;
+            height: 500px;
+            margin-top: -255px;
+          }

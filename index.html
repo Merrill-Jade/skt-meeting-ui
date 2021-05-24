@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--test-->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="generator" content="">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/styles.css">
+        <title>NUGU meeting</title>
+
+        <style>
+        </style>
+    </head>
+
+    <body onload='load()' >
+        <!-- navigator -->
+        <header>
+            <nav class="navbar navbar-expand-md navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html" aria-current="page">
+                        <img src="./images/sktelecom-logo_lg.png" style="width: 60%; padding: 1rem; padding-top: 0.5rem;" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collpse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+
+                    <!-- login -->
+                    <div class="navbar-nav" id="nav-container">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <button id="login" type="button" class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                            </li>
+                            <li class="nav-item">
+                                <button id="join" type="button" class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#joinModal">Join</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-user-circle fa-2x"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- logout -->
+                    <div class="navbar-nav" id="nav-container-logout">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <button id="logout" type="button" class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#logoutModal" onclick="logout()">Logout</button>
+                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-user-circle fa-2x"></i>
+                            </a>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- login modal -->
+                <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body container">
+                                <img src="./images/sktelecom-logo_lg.png" style="width: 80%; margin-top: 0.5rem; margin-bottom: 2rem; padding-left: 23%;" />
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="user-id" class="form-label">ID</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control" id="login-id" required/>
+                                        <div class="invalid-feedback">
+                                            아이디를 입력해 주세요.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="user-pw" class="form-label">Password</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="password" class="form-control" id="login-pw" required/>
+                                        <div class="invalid-feedback">
+                                            비밀번호를 입력해 주세요.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" onclick="login();">Log in</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- login modal end -->
+
+                <!-- logout modal -->
+                <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                로그아웃 하시겠습니까? 
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- logout modal end -->
+
+                <!-- join modal -->
+                <div class="modal fade" id="joinModal" tabindex="-1" aria-labelledby="joinModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="./images/sktelecom-logo_lg.png" style="width: 80%; margin-top: 0.5rem; margin-bottom: 2rem; padding-left: 23%;" />
+                                <form class="needs-validation join-form">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="user-id" class="form-label">ID</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" id="user-id" placeholder="ID" required/>
+                                            <div class="invalid-feedback">
+                                                아이디를 입력해 주세요.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="user-pw" class="form-label">Password</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="password" class="form-control" id="user-pw" placeholder="Password" required/>
+                                            <div class="invalid-feedback">
+                                                비밀번호를 입력해 주세요.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="user-pw-confirm" class="form-label">Password Confirm</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="password" class="form-control" id="user-pw-confirm" placeholder="Password Confirm" required/>
+                                            <div class="invalid-feedback">
+                                                비밀번호를 다시 한번 입력해 주세요.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="user-name" class="form-label">Name</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" id="user-name" placeholder="Name" required/>
+                                            <div class="invalid-feedback">
+                                                이름을 입력해 주세요.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="user-company" class="col-form-label">Company</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" id="user-company" placeholder="Company" required/>
+                                            <div class="invalid-feedback">
+                                                소속 회사를 입력해 주세요.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="user-department" class="col-form-label">Department</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" id="user-department" placeholder="Department"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="user-email" class="col-form-label">Email</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" id="user-email" placeholder="id@company.com" required/>
+                                            <div class="invalid-feedback">
+                                                메일 주소를 입력해 주세요.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="user-role" class="col-form-label">Role</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" id="user-role" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <legend for="form-check" class="col-form-label col">Grade</legend>
+                                        <div class="user-join-radio col-8" style="padding-top: 0.5rem;">
+                                            <div class="form-check-inline">
+                                                <input class="form-check-input" type="radio" name="userGradeRadio" id="userGradeDefault">
+                                                <label class="form-check-label" for="userGradeDefault">
+                                                    User                                                
+                                                </label>
+                                            </div>
+                                            <div class="form-check-inline">
+                                                <input class="form-check-input" type="radio" name="userGradeRadio" id="userGradeAdmin">
+                                                <label class="form-check-label" for="userGradeAdmin">
+                                                    Admin
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <!--
+                                <button type="button" class="btn btn-success" id="join-btn" data-bs-dismiss="modal">Join</button>
+                                -->
+                                <button type="submit" class="btn btn-success" id="join-btn" onclick="join();">Join</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- join modal end -->
+
+                <!-- minute delete modal -->
+                <div class="modal fade" id="MinuteDeleteModal" tabindex="-1" aria-labelledby="MinuteDeleteModalLabel" aria-hidden="true"
+                    style="z-index: 2001;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                선택한 회의록을 삭제하시겠습니까? 
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="clickedDeleteMinute();">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- minute delete modal -->
+
+            </nav>
+        </header>
+
+        <!-- main -->
+        <main>
+            <div id="overlay1">
+                <div class="cover-image">
+                    <img src="./images/nugu_main image.jpg"/>
+                    <!--
+                    <h1>Speech-to-Text Meeting Browser</h1>
+                    <h5>If you join in a conference room using Google meeting room hardware, you can see<br>
+                    the messages, but not send. Messages are visible to everyone in the call.<br>
+                    You can only see the chat messages exchanged when you are in the meeting.</h5>
+                    -->
+                </div>
+
+                <div class="container main-menu login" >
+                    <div class="row">
+                        <div class="col menu-container">
+                            <button id="newMeetBtn" type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#newMeetModal">     
+                                <div class="img-container">
+                                    <img src="./images/menu_icon_01.svg" onclick="openModalForNewMeet();" />
+                                </div>                  
+                                <div>
+                                    <span>새 회의록 시작</span>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col menu-container">
+                            <button id="viewClosedBtn" type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#chatListModal">
+                                <div class="img-container">
+                                    <img src="./images/menu_icon_02.svg" onclick="viewClosedMinutes();" />
+                                </div>
+                                <div>
+                                    <span>지난 회의록</span>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col menu-container">
+                            <button id="viewOngoingBtn" type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#chatListModal">
+                                <div class="img-container">
+                                    <img src="./images/menu_icon_03.svg" onclick="viewOngoingMinutes();" />
+                                </div>
+                                <div>
+                                    <span>실시간 회의록</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container main-menu logout">
+                    <div class="row">
+                        <div class="col menu-container">
+                            <button id="newMeetBtn" type="button" class="btn btn-link" data-bs-toggle="modal"
+                                data-bs-target="#needLoginModal">
+                                <div class="img-container">
+                                    <img src="./images/menu_icon_01.svg" onclick="openModalForNewMeet();" />
+                                </div>
+                                <div>
+                                    <span>새 회의록 시작</span>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col menu-container">
+                            <button id="viewClosedBtn" type="button" class="btn btn-link" data-bs-toggle="modal"
+                                data-bs-target="#needLoginModal">
+                                <div class="img-container">
+                                    <img src="./images/menu_icon_02.svg" onclick="viewClosedMinutes();" />
+                                </div>
+                                <div>
+                                    <span>지난 회의록</span>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col menu-container">
+                            <button id="viewOngoingBtn" type="button" class="btn btn-link" data-bs-toggle="modal"
+                                data-bs-target="#needLoginModal">
+                                <div class="img-container">
+                                    <img src="./images/menu_icon_03.svg" onclick="viewOngoingMinutes();" />
+                                </div>
+                                <div>
+                                    <span>실시간 회의록</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>            
+            <!-- [main] chat view (import from pages/chatview.html)-->
+            <div id="overlay2">
+            </div>
+
+            <!-- need login modal -->
+            <div class="modal fade" id="needLoginModal" tabindex="-1" aria-labelledby="needLoginModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            You need to log in for the services.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                onclick="needLogin();">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- need login modal end -->
+            
+            <!-- new meeting modal -->
+            <div class="modal fade" id="newMeetModal" tabindex="-1" aria-labelledby="newMeetModalLabel" aria-hidden="true"
+                style="z-index: 2000;">
+                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="newMeetModalTitle">새 회의록</h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body newmeet-form">
+                            <div class="row">
+                                <label for="roomSubject" class="col-form-label col-2">Subject</label>
+                                <div class="input-group mb-3 col has-validation">
+                                    <input type="text" class="form-control col" id="roomSubject" required/>
+                                    <div class="invalid-feedback">
+                                        회의 제목을 입력해 주세요.
+                                    </div>                                
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="roomDeviceID" class="col-form-label col-2">Device ID</label>
+                                <div class="input-group mb-3 col has-validation">
+                                    <input type="text" class="form-control col" id="roomDeviceID" required/>
+                                    <button type="button" class="btn btn-secondary col-1" data-bs-toggle="modal"
+                                        data-bs-target="#listResModal" id="roomDeviceIDListBtn"
+                                        onClick="listDeviceEnum();">...</button>
+                                    <div class="invalid-feedback">
+                                        회의에 사용하실 장치를 확인해 주세요.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="roomName" class="col-form-label col-2">Room</label>
+                                <div class="input-group mb-3 col has-validation">
+                                    <input type="text" class="form-control col" id="roomName">
+                                    <button type="button" class="btn btn-secondary col-1" data-bs-toggle="modal"
+                                        data-bs-target="#listResModal" id="roomNameListBtn" onclick="listRoomEnum();">...</button>
+                                    <div class="invalid-feedback">
+                                        다른 회의에서 사용 중인 방입니다.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Attendance List -->
+                            <label for="attendanceForm" class="col-form-label">Attendance</label>
+                            <div class="control-group" id="fields">
+                                <div class="controls">
+                                    <form role="form" autocomplete="off" id="attendanceForm">
+<!--
+                                        <div class="voca">
+                                            <div class="input-group mb-3">
+                                                <input class="form-control col-4" placeholder="Name" name="attendee" type="text" value=""/>
+                                                <input class="form-control col-2" placeholder="Start Angle" name="startAngle"
+                                                    type="text" value=""/>
+                                                <input class="form-control col-2" placeholder="End Angle" name="endAngle"
+                                                    type="text" value=""/>
+                                                <-- removed color picker
+                                                <input type="color" class="form-control form-control-color col-1" name="usercolor"
+                                                    value="#33445F" title="Choose your color">
+                                                
+                                                <button type="button" class="btn btn-success btn-add">
+                                                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>+
+                                                </button>
+                                                <div class="invalid-feedback">
+                                                    회의 참여자 정보를 다시 한번 확인해 주세요.
+                                                </div>
+                                            </div>
+                                        </div>
+-->
+                                    </form>
+                                </div>
+                            </div>
+            
+                            <div class="input-group newmeet-applybtn-wrapper">
+                                <button id="newMeetModalBtn" type="button" class="btn btn-primary" onclick="applyAttendance();">Apply</button>
+                            </div>
+            
+                            <!-- position viewer -->
+                            <div id="create-layout">
+            
+                            </div>
+            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" id="create-btn">Create</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- new meeting modal end -->
+            
+            <!-- device list modal -->
+            <div class="modal fade" id="listResModal" tabindex="-1" aria-labelledby="listResModalLabel" aria-hidden="true"
+                style="z-index: 3000;">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="listResModalTitle">Select Item</h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="resList" class="list-group">
+                                <!-- enum device-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- device list modal end -->
+            
+            <!-- chat list modal -->
+            <div class="modal fade" id="chatListModal" tabindex="-1" aria-labelledby="chatListModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="chatListModalTitle"></h3>
+                            <form id="chatListModalSearch">
+                                <input type="search" onkeyup="searchChatItem();"/>
+                                <i class="fas fa-search"></i>
+                            </form>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="list-group" id="chatList">
+            
+                                <div class="form-check">
+                                    <!-- closed minute insert in here -->
+            
+                                </div>
+            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- view closed modal end -->
+
+
+        </main>
+
+        <!-- footer -->
+        <footer>
+            <small>
+                <p>COPYRIGHT SK TELECOM CO., LTD. ALL RIGHTS RESERVED.</p>
+            </small>
+        </footer>
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+        crossorigin="anonymous"></script>
+
+    <script src="js/res/jquery-3.5.1.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/xhr.js"></script>
+    <script src="js/restComm.js"></script>
+    <script src="js/member.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/minutes.js"></script>
+    <script src="js/minutes-list.js"></script>
+    <script src="js/scripts-chat.js"></script>
+    <script src="js/actions.js"></script>
+
+</html>

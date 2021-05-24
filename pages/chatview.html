@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-ko" xmlns="www.w3.org/1990/xhtml" xml:lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/chatstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="chatroom-wrapper">
+        <div class="row">
+            <div class="attendance-wrapper">
+                <div class="attendance-container">
+                    <h5>Participants</h5>
+                    <ul class="participants">
+                        <!-- 참여자 목록이 들어갈 자리  -->
+                    </ul>
+                    <button type="button" class="btn btn-secondary" id="modifySeat" data-bs-toggle="modal"
+                        data-bs-target="#newMeetModal">좌석 배치 변경</button>
+                </div>
+            </div>
+            <div class="chat-contents-wrapper">
+                <div class="row" style="border-bottom: 1px solid gray;">
+                    <div class="chatroom-title-img col-1">
+                        <img src="./images/menu_icon_02.svg"/>
+                        <img src="./images/menu_icon_03.svg"/>
+                    </div>
+                    <div class="chatroom-title-wrapper col">
+                        <!-- meeting id -->
+                        <h5></h5>
+                        <!-- meeting description -->
+                        <span></span>
+                    </div>
+                    <div class="chatroom-btnmenu-wrapper col-3">
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#chatListModal">목록 보기</button>
+                        <a role="button" class="btn btn-secondary" href="./index.html" id="terminateMinute">회의 종료</a>
+                    </div>
+                </div>
+                <div class="row" style="align-items: center;">
+                    <div class="col-5">
+                        <!-- seat image -->
+                        <div class="svg-wrapper-chatview">
+                            <img id="tableImage" src="./resources/Table.svg"/>
+                            <svg id="circleParent" style="height: 500px; width: 500px">
+                              <polygon id="head" transform="rotate(180 240 40)" />
+                              <polygon id="ref_head" points="240 40  230 10  250 10" transform="rotate(360 240 40)" style="fill:#a3a2a2;stroke:rgb(97, 97, 97);stroke-width:1"/>
+                            </svg>
+                            <div class="people-wrapper">
+                                <img src="./resources/People/People_01.svg" id="People_01" class="people">
+                                <img src="./resources/People/People_02.svg" id="People_02" class="people">
+                                <img src="./resources/People/People_03.svg" id="People_03" class="people">
+                                <img src="./resources/People/People_04.svg" id="People_04" class="people">
+                                <img src="./resources/People/People_05.svg" id="People_05" class="people">
+                                <img src="./resources/People/People_06.svg" id="People_06" class="people">
+                                <img src="./resources/People/People_07.svg" id="People_07" class="people">
+                                <img src="./resources/People/People_08.svg" id="People_08" class="people">
+                            </div>
+                            <div class="bubble-wrapper">
+                                <img src="./resources/Bubble/Bubble_01.svg" id="Bubble_01" class="bubble">
+                                <img src="./resources/Bubble/Bubble_02.svg" id="Bubble_02" class="bubble">
+                                <img src="./resources/Bubble/Bubble_03.svg" id="Bubble_03" class="bubble">
+                                <img src="./resources/Bubble/Bubble_04.svg" id="Bubble_04" class="bubble">
+                                <img src="./resources/Bubble/Bubble_05.svg" id="Bubble_05" class="bubble">
+                                <img src="./resources/Bubble/Bubble_06.svg" id="Bubble_06" class="bubble">
+                                <img src="./resources/Bubble/Bubble_07.svg" id="Bubble_07" class="bubble">
+                                <img src="./resources/Bubble/Bubble_08.svg" id="Bubble_08" class="bubble">
+                            </div>
+                        </div>
+                         <!-- seat image end-->
+                    </div>
+                    <div class="col">
+                        <div class="chatmsglist-wrapper">
+                            <!-- messages insert in here -->
+                            <!-- messages end -->
+                        </div>
+                        <div class="input-group mb-3 chat-msg-input">
+                            <label> </label>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="../js/scripts-chat.js"></script>
+</body>
+</html>
